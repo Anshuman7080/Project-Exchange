@@ -3,8 +3,13 @@ import { Boxes } from '@/components/ui/background-boxes'
 import React from 'react'
 import SearchForm from '@/components/SearchForm'
 import { ThreeDCardDemo } from '@/components/ThreeDCard'
+import { checkDBConnection } from '@/config/db'
 
 const Page = () => {
+  // checkDBConnection().then((isConnected) => {
+  //   console.log("checkDbConnection", isConnected);
+  // });
+
   return (
   <>
 
