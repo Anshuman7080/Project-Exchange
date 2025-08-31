@@ -1,10 +1,13 @@
+
 import { auth,signIn,signOut } from '@/auth'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 const NavBar = async () => {
-    const session=await auth();
+
+       const session=await auth();
+       
     // console.log("session id is", session?.id);
     // console.log("session is", session);
   return (

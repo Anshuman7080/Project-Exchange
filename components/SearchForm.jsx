@@ -1,7 +1,10 @@
-import React from 'react'
+
 import Form from 'next/form'
 import { Search } from 'lucide-react'
+
+
 const SearchForm = () => {
+
   return (
    <Form
    action="/"
@@ -25,7 +28,7 @@ const SearchForm = () => {
  
      <button type="submit" className="search-button">Submit</button>
     
-    <Search className="size-5"/>
+    <Search className="w-5 h-5 text-black" />
 
      </div>
 

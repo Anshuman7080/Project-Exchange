@@ -7,14 +7,14 @@ export const db = mysql.createPool({
   database: "ProjectHub",
 });
 
-
-
 export async function checkDBConnection() {
   try {
     const conn = await db.getConnection();
+ 
     conn.release();
     return true;
   } catch {
     return false;
   }
+
 }

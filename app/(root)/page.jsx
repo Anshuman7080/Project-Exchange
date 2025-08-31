@@ -1,14 +1,26 @@
+"use client"
 import { cn } from '@/lib/utils'
 import { Boxes } from '@/components/ui/background-boxes'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchForm from '@/components/SearchForm'
 import { ThreeDCardDemo } from '@/components/ThreeDCard'
-import { checkDBConnection } from '@/config/db'
+import { useSearchParams } from 'next/navigation'
 
 const Page = () => {
-  // checkDBConnection().then((isConnected) => {
-  //   console.log("checkDbConnection", isConnected);
-  // });
+  
+    const searchParams = useSearchParams();
+  const query = searchParams.get("query") || "";
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    if (query) {
+      fetch(`/api/search?query=${query}`)
+        .then(res => res.json())
+        .then(data => setResults(data));
+    }
+  }, [query]);
+
+ console.log("result is",results);
 
   return (
   <>
