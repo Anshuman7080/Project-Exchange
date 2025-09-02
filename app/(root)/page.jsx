@@ -11,16 +11,17 @@ const Page = () => {
     const searchParams = useSearchParams();
   const query = searchParams.get("query") || "";
   const [results, setResults] = useState([]);
+  // console.log("query in page",query)
 
   useEffect(() => {
-    if (query) {
+  
       fetch(`/api/search?query=${query}`)
         .then(res => res.json())
         .then(data => setResults(data));
-    }
+    
   }, [query]);
 
- console.log("result is",results);
+//  console.log("result is",results);
 
   return (
   <>
@@ -44,24 +45,21 @@ const Page = () => {
 
       {/* Search Form */}
       <div className="w-full lg:max-w-[70%] z-10">
-        <SearchForm />
+        <SearchForm  query={query} />
       </div>
 
     </div>
 
     <section className="">
       <p className="text-30-semibold">
-       Trendy Projects
+      {query ? `Search Result for "${query}"`: "Trendy Projects"}
       </p>
 
         <ul className="mt-7 grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-1 
         justify-center">
             {
-              [{'id' : 123 ,"title" : "A New Project", 'desc':"A Great Description"},
-              {'id' : 124 ,"title" : "A New Project", 'desc':"A Great Description"},
-              {'id' : 125 ,"title" : "A New Project", 'desc':"A Great Description"},
-              {'id' : 126 ,"title" : "A New Project", 'desc':"A Great Description"}].map((item,ind)=>(
-                <ThreeDCardDemo key={item.id} />
+            results?.map((item,ind)=>(
+                <ThreeDCardDemo key={ind} post={item}/>
               ))
             }
         </ul>

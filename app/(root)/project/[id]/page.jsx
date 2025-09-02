@@ -1,9 +1,27 @@
+"use client"
 import { Boxes } from '@/components/ui/background-boxes'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import { useParams } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const page =  () => {
+  const params=useParams();
+  const id=params.id;
+
+  const [projectDetails,setProjectDetails]=useState("");
+
+  useEffect(()=>{
+    const fetchProjectDetails = async () => {
+      const res = await fetch(`/api/projects/${id}`);
+      const data = await res.json();
+      setProjectDetails(data);
+    };
+
+    fetchProjectDetails();
+  }, [id]);
+
+
   return (
     <>
           <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
