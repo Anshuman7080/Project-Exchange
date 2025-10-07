@@ -1,14 +1,26 @@
+
+"use client";
+
 import ProjectForm from '@/components/ProjectForm'
-import React from 'react'
+import { redirect } from 'next/navigation';
+import { motion } from "motion/react";
+import React, { useEffect } from 'react'
+import LampDemo, { LampContainer } from '@/components/ui/lamp';
+
 
 const Create = () => {
+
+ 
+
+
   return (
   <>
-    <section className=" min-h-[230px]">
-        <h1 className="">
-            Submit your Project
+    <section className=" min-h-[230px] mb-8">
+        <h1 >
+             <LampDemo/>
         </h1>
 
+ 
     </section>
 
     <ProjectForm />

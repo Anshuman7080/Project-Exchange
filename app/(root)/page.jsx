@@ -51,7 +51,7 @@ const Page = () => {
     </div>
 
     <section className="">
-      <p className="text-30-semibold">
+      <p className="text-30-semibold ml-4 mt-5 font-bold">
       {query ? `Search Result for "${query}"`: "Trendy Projects"}
       </p>
 
@@ -59,7 +59,7 @@ const Page = () => {
         justify-center">
             {
             results?.map((item,ind)=>(
-                <ThreeDCardDemo key={ind} post={item}/>
+                <ThreeDCardDemo key={ind} post={item} userName={item?.AUTHOR_NAME}/>
               ))
             }
         </ul>

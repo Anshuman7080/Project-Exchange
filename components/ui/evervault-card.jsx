@@ -33,6 +33,8 @@ export const EvervaultCard = ({
     setRandomString(str);
   }
 
+  
+
   return (
     <div
       className={cn(
@@ -50,12 +52,15 @@ export const EvervaultCard = ({
               className="absolute w-full h-full dark:bg-black/[0.8] blur-sm rounded-full" />
             <span className="dark:text-white text-black z-20 justify-center items-center flex flex-col">
             
+
+
+
             <Image
-              src={imageUrl || "https://placehold.co/200" }
+              src={imageUrl || "https://placehold.co/200"}
               alt={text || "Profile Image"}
               width={220}
               height={220}
-              className=""
+              className="rounded-full bg-cover object-cover"
             />
             
             {text}</span>

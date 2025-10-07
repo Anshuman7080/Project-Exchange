@@ -8,10 +8,15 @@ export async function GET(req){
         const id = searchParams.get("ID");
 
 const [rows] = await db.query(`
-  SELECT PROJECT.*, AUTHORS.NAME AS AUTHOR_NAME 
+  SELECT 
+    PROJECT.*, 
+    AUTHORS.NAME AS AUTHOR_NAME,
+    AUTHORS.IMAGE AS AUTHOR_IMAGE
   FROM PROJECT 
   JOIN AUTHORS ON PROJECT.AUTHOR_ID = AUTHORS.ID 
-  WHERE PROJECT.ID = ?`, [id]);
+  WHERE PROJECT.ID = ?
+`, [id]);
+
 
 const project = rows[0]; 
 console.log("project is", project);
