@@ -30,7 +30,7 @@ const page = () => {
     <>
         <section className=" flex gap-4 max-w-[95%] mx-auto ">
 
-    <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col  max-w-sm mx-auto p-4 relative h-[30rem] items-center mt-20">
+    <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col  max-w-sm mx-auto p-4 relative h-[30rem] items-center mt-20 -ml-4">
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
@@ -57,11 +57,13 @@ const page = () => {
                }
                  </p>
 
-                  <ul className="-mt-10 grid lg:grid-cols-2 grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 justify-center">
+                  <ul className="-mt-10 grid lg:grid-cols-2 grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 justify-center -mr-2">
                      {
                       projectList?.length > 0 ? (
                       projectList.map((item, ind) => (
-                      <ThreeDCardDemo key={ind} post={item} userName={author?.NAME} userId={author?.ID} />
+                     <div className="" key={ind}>
+                       <ThreeDCardDemo post={item} userName={author?.NAME} userId={author?.ID} />
+                     </div>
                        ))
                 ) : (
                           <div className="text-7xl font-semibold opacity-50 flex items-center mt-5 justify-center">No Project Found</div>
